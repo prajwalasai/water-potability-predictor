@@ -6,7 +6,6 @@ A web app that uses machine learning to estimate whether drinking water is
 > ⚠️ **Important:** The prediction is only an estimate, not a guarantee that
 > water is safe. Laboratory testing is required to confirm actual water safety.
 
-**Live demo:** [add your Render link here]
 
 ## Problem
 People often cannot tell whether their drinking water is safe, and laboratory
@@ -24,7 +23,6 @@ learning can give a quick, preliminary estimate from measured parameters.
 - **Model:** Python, pandas, scikit-learn (Random Forest)
 - **Backend:** FastAPI + Uvicorn
 - **Frontend:** HTML, CSS, JavaScript
-- **Hosting:** Render
 
 ## Project structure
 ```

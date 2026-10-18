@@ -1,15 +1,18 @@
 const form = document.getElementById("form");
 const box = document.getElementById("result");
 
+const FIELDS = [
+    "ph", "hardness", "solids", "chloramines", "sulfate",
+    "conductivity", "organic_carbon", "trihalomethanes", "turbidity",
+];
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const body = {
-        ph: parseFloat(document.getElementById("ph").value),
-        hardness: parseFloat(document.getElementById("hardness").value),
-        solids: parseFloat(document.getElementById("solids").value),
-        turbidity: parseFloat(document.getElementById("turbidity").value),
-    };
+    const body = {};
+    FIELDS.forEach((id) => {
+        body[id] = parseFloat(document.getElementById(id).value);
+    });
 
     box.className = "";
     box.textContent = "Analyzing...";

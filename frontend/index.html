@@ -15,17 +15,23 @@
 
         <form id="form">
             <label>pH (0 to 14)
-                <input type="number" step="any" id="ph" required min="0" max="14" placeholder="e.g. 7.0">
-            </label>
+                <input type="number" step="any" id="ph" required min="0" max="14" placeholder="e.g. 7.0"></label>
             <label>Hardness (mg/L)
-                <input type="number" step="any" id="hardness" required min="0" placeholder="e.g. 190">
-            </label>
+                <input type="number" step="any" id="hardness" required min="0" placeholder="e.g. 196"></label>
             <label>Solids / TDS (ppm)
-                <input type="number" step="any" id="solids" required min="0" placeholder="e.g. 20000">
-            </label>
+                <input type="number" step="any" id="solids" required min="0" placeholder="e.g. 20000"></label>
+            <label>Chloramines (ppm)
+                <input type="number" step="any" id="chloramines" required min="0" placeholder="e.g. 7"></label>
+            <label>Sulfate (mg/L)
+                <input type="number" step="any" id="sulfate" required min="0" placeholder="e.g. 333"></label>
+            <label>Conductivity (μS/cm)
+                <input type="number" step="any" id="conductivity" required min="0" placeholder="e.g. 420"></label>
+            <label>Organic carbon (ppm)
+                <input type="number" step="any" id="organic_carbon" required min="0" placeholder="e.g. 14"></label>
+            <label>Trihalomethanes (μg/L)
+                <input type="number" step="any" id="trihalomethanes" required min="0" placeholder="e.g. 66"></label>
             <label>Turbidity (NTU)
-                <input type="number" step="any" id="turbidity" required min="0" placeholder="e.g. 4">
-            </label>
+                <input type="number" step="any" id="turbidity" required min="0" placeholder="e.g. 4"></label>
             <button type="submit">Predict</button>
         </form>
 
