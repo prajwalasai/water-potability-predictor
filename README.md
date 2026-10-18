@@ -45,10 +45,28 @@ uvicorn backend.main:app --reload
 Then open http://127.0.0.1:8000
 
 ## Model results
-- Dataset: public Kaggle "Water Potability" dataset (3,276 samples)
-- Inputs used: pH, Hardness, Solids, Turbidity
-- Test accuracy: [your accuracy]
-- Precision / recall: [your numbers from train.py output]
+- Dataset: public Kaggle "Water Potability" dataset (3,276 samples, 9 parameters)
+- Inputs: pH, Hardness, Solids, Chloramines, Sulfate, Conductivity,
+  Organic carbon, Trihalomethanes, Turbidity
+- Model: Random Forest (300 trees, class-balanced), missing values filled
+  with the median
+- Test accuracy: 64.9% (656 test samples, 80/20 split)
+- Majority-class baseline: 61% (always predicting "Not Potable")
+
+| Class | Precision | Recall | F1 |
+|---|---|---|---|
+| Not Potable | 0.68 | 0.80 | 0.74 |
+| Potable | 0.57 | 0.42 | 0.48 |
+
+### Model comparison (5-fold cross-validation accuracy)
+| Features | Logistic Regression | Random Forest | Gradient Boosting |
+|---|---|---|---|
+| 4 (pH, Hardness, Solids, Turbidity) | 0.510 | 0.575 | 0.607 |
+| All 9 | 0.505 | 0.668 | 0.657 |
+
+Using only four parameters performed no better than the 61% baseline, so the
+final model uses all nine. The model is a prototype demonstration, not a
+reliable measure of water safety. Laboratory testing is required.
 
 ## Limitations
 - The dataset is not from Warangal, so results cannot be assumed to apply to
