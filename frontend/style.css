@@ -1,0 +1,95 @@
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: #eef6fb;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+}
+
+.card {
+    background: #fff;
+    max-width: 440px;
+    width: 100%;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.sub {
+    color: #555;
+}
+
+label {
+    display: block;
+    margin: 12px 0;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    border: 1px solid #ccd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background: #0b79c4;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #095f9a;
+}
+
+#result {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#result strong {
+    font-size: 20px;
+}
+
+#result span,
+#result small {
+    display: block;
+    margin-top: 6px;
+}
+
+.good {
+    background: #e3f6e8;
+    color: #1b6b32;
+}
+
+.bad {
+    background: #fde8e8;
+    color: #9b1c1c;
+}
+
+.hidden {
+    display: none;
+}
+
+.note {
+    font-size: 13px;
+    color: #666;
+    margin-top: 18px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Water Potability Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>💧 Water Potability Predictor</h1>
+        <p class="sub">Enter your water quality measurements to get a preliminary estimate.</p>
+
+        <form id="form">
+            <label>pH (0 to 14)
+                <input type="number" step="any" id="ph" required min="0" max="14" placeholder="e.g. 7.0">
+            </label>
+            <label>Hardness (mg/L)
+                <input type="number" step="any" id="hardness" required min="0" placeholder="e.g. 190">
+            </label>
+            <label>Solids / TDS (ppm)
+                <input type="number" step="any" id="solids" required min="0" placeholder="e.g. 20000">
+            </label>
+            <label>Turbidity (NTU)
+                <input type="number" step="any" id="turbidity" required min="0" placeholder="e.g. 4">
+            </label>
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="result" class="hidden"></div>
+
+        <p class="note">
+            ⚠️ This is a prototype trained on a public dataset that was not collected
+            from Warangal. The prediction is only an estimate, not a guarantee that
+            water is safe. Laboratory testing is needed to confirm actual water safety.
+        </p>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
