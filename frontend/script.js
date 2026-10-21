@@ -28,11 +28,19 @@ form.addEventListener("submit", async (e) => {
 
         const data = await res.json();
 
+        let html = "<strong>" + data.result + "</strong>";
+        if (data.confidence !== null) {
+            html += "<span>Model confidence: " + data.confidence + "%</span>";
+        }
+        html += "<span>Decided by: " + data.method + "</span>";
+        if (data.reasons.length > 0) {
+            html += "<ul style='text-align:left'>" +
+                data.reasons.map((r) => "<li>" + r + "</li>").join("") + "</ul>";
+        }
+        html += "<small>" + data.disclaimer + "</small>";
+
         box.className = data.result === "Potable" ? "good" : "bad";
-        box.innerHTML =
-            "<strong>" + data.result + "</strong>" +
-            "<span>Model confidence: " + data.confidence + "%</span>" +
-            "<small>" + data.disclaimer + "</small>";
+        box.innerHTML = html;
     } catch (err) {
         box.className = "bad";
         box.textContent = err.message;
