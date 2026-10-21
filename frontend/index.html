@@ -9,40 +9,100 @@
 </head>
 
 <body>
-    <main class="card">
-        <h1>💧 Water Potability Predictor</h1>
-        <p class="sub">Enter your water quality measurements to get a preliminary estimate.</p>
+    <!-- animated water background -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="bubbles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="wave wave-back" aria-hidden="true"></div>
+    <div class="wave wave-mid" aria-hidden="true"></div>
+    <div class="wave wave-front" aria-hidden="true"></div>
 
-        <form id="form">
-            <label>pH (0 to 14)
-                <input type="number" step="any" id="ph" required min="0" max="14" placeholder="e.g. 7.0"></label>
-            <label>Hardness (mg/L)
-                <input type="number" step="any" id="hardness" required min="0" placeholder="e.g. 196"></label>
-            <label>Solids / TDS (ppm)
-                <input type="number" step="any" id="solids" required min="0" placeholder="e.g. 20000"></label>
-            <label>Chloramines (ppm)
-                <input type="number" step="any" id="chloramines" required min="0" placeholder="e.g. 7"></label>
-            <label>Sulfate (mg/L)
-                <input type="number" step="any" id="sulfate" required min="0" placeholder="e.g. 333"></label>
-            <label>Conductivity (μS/cm)
-                <input type="number" step="any" id="conductivity" required min="0" placeholder="e.g. 420"></label>
-            <label>Organic carbon (ppm)
-                <input type="number" step="any" id="organic_carbon" required min="0" placeholder="e.g. 14"></label>
-            <label>Trihalomethanes (μg/L)
-                <input type="number" step="any" id="trihalomethanes" required min="0" placeholder="e.g. 66"></label>
-            <label>Turbidity (NTU)
-                <input type="number" step="any" id="turbidity" required min="0" placeholder="e.g. 4"></label>
-            <button type="submit">Predict</button>
-        </form>
+    <main class="container">
+        <header class="hero">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="38" height="38" fill="none" aria-hidden="true">
+                    <path d="M12 2.5C12 2.5 5 10.2 5 15a7 7 0 0 0 14 0c0-4.8-7-12.5-7-12.5Z" fill="url(#drop)"
+                        stroke="rgba(255,255,255,.7)" stroke-width="1" />
+                    <path d="M9 15.5a3 3 0 0 0 2.4 2.9" stroke="rgba(255,255,255,.85)" stroke-width="1.6"
+                        stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="drop" x1="5" y1="2" x2="19" y2="22">
+                            <stop offset="0" stop-color="#7be7ff" />
+                            <stop offset="1" stop-color="#1c7ff0" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1>Water Potability Predictor</h1>
+            <p>Enter your water test values to check whether the water may be suitable for drinking.</p>
+        </header>
 
-        <div id="result" class="hidden"></div>
+        <section class="card">
+            <h2>Water quality measurements</h2>
 
-        <p class="note">
-            ⚠️ This is a prototype trained on a public dataset that was not collected
-            from Warangal. The prediction is only an estimate, not a guarantee that
-            water is safe. Laboratory testing is needed to confirm actual water safety.
-        </p>
+            <form id="form" novalidate>
+                <div class="grid">
+                    <label class="field">
+                        <span class="label">pH <em>0 to 14</em></span>
+                        <input type="number" step="any" id="ph" min="0" max="14" required placeholder="e.g. 7.2">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Hardness <em>mg/L</em></span>
+                        <input type="number" step="any" id="hardness" min="0" required placeholder="e.g. 150">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Solids (TDS) <em>ppm</em></span>
+                        <input type="number" step="any" id="solids" min="0" required placeholder="e.g. 400">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Chloramines <em>ppm</em></span>
+                        <input type="number" step="any" id="chloramines" min="0" required placeholder="e.g. 2">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Sulfate <em>mg/L</em></span>
+                        <input type="number" step="any" id="sulfate" min="0" required placeholder="e.g. 150">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Conductivity <em>µS/cm</em></span>
+                        <input type="number" step="any" id="conductivity" min="0" required placeholder="e.g. 400">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Organic carbon <em>ppm</em></span>
+                        <input type="number" step="any" id="organic_carbon" min="0" required placeholder="e.g. 2">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Trihalomethanes <em>µg/L</em></span>
+                        <input type="number" step="any" id="trihalomethanes" min="0" required placeholder="e.g. 40">
+                    </label>
+
+                    <label class="field">
+                        <span class="label">Turbidity <em>NTU</em></span>
+                        <input type="number" step="any" id="turbidity" min="0" required placeholder="e.g. 0.5">
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn-primary" id="predictBtn">Check water</button>
+                    <button type="button" class="btn-secondary" id="clearBtn">Clear</button>
+                </div>
+            </form>
+
+            <div id="result" class="result hidden" aria-live="polite"></div>
+        </section>
+
+        <p class="footer-note">Estimate only. Confirm with laboratory testing.</p>
     </main>
+
     <script src="script.js"></script>
 </body>
 
