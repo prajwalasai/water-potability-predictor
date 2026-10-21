@@ -110,7 +110,5 @@ With only four parameters, no model clearly beat the 61% baseline, so the final 
 
 ## Author
 -Macherla Prajwala Sai
-Team Mates:1.Motla Roja
-           2.Arelly Mugdha
-           3.Sanith Kumar
-           4.D.Sreethu
+
+**Team Members:** Motla Roja,Arelly Mugdha,Sanith Kumar,D.Sreethu
